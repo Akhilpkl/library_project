@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold mb-4">Results for "{{ query }}"</h2>
+
+        {% if books %}
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {% for book in books %}
+            <div class="bg-white rounded shadow p-4">
+                <h3 class="text-lg font-semibold">{{ book[1] }}</h3>
+                <p class="text-sm text-gray-600">by {{ book[2] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-red-600">No books found.</p>
+        {% endif %}
+
+        <div class="mt-6">
+            <a href="/" class="text-blue-600 hover:underline">⬅ Back to Home</a>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

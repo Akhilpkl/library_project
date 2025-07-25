@@ -23,12 +23,13 @@
         <p class="text-gray-600 text-lg">Manage books, members, and transactions effortlessly.</p>
     </section>
 <div class="container mx-auto my-10 px-4">
-    <form action="/search" method="GET" class="flex flex-col sm:flex-row gap-4 justify-center">
-        <input type="text" name="query" placeholder="Search here"
+    <form action="/search" method="GET" id="searchForm" class="flex flex-col sm:flex-row gap-4 justify-center">
+        <input type="text" name="query" placeholder="Search here"  id="searchInput"
             class="w-full sm:w-2/3 p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
         <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-800">
             Search
         </button>
+        
     </form>
 </div>
 <section class="container mx-auto px-4 py-8">
@@ -51,5 +52,7 @@
 <footer class="bg-blue-700 text-white text-center py-4 mt-12">
     <p>&copy; 2025 MyLibrary. All rights reserved.</p>
 </footer>
+<script src="{{ url_for('static', filename='search.js') }}"></script>
 </body>
+
 </html>
