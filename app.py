@@ -50,5 +50,20 @@ def add_member():
         return redirect('/members')
     return render_template("add_member.html")
 
+@app.route('/search')
+def search():
+    query = request.args.get('query', '').strip()
+
+    connection = get_connection()
+    with connection.cursor() as cursor:
+        sql = "SELECT * FROM books WHERE title LIKE %s OR author LIKE %s"
+        like_query = f"%{query}%"
+        cursor.execute(sql, (like_query, like_query))
+        results = cursor.fetchall()
+    connection.close()
+
+    return render_template('search_results.html', books=results, query=query)
+
+
 if __name__ == '__main__':
     app.run( debug=True)
