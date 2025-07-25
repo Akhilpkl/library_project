@@ -96,7 +96,6 @@ library_project/
 │   └── add_member.html
 │
 ├── app.py
-└── README.md
 ```
 
 ---
