@@ -4,8 +4,12 @@ import pymysql
 app = Flask(__name__)
 
 def get_connection():
+<<<<<<< HEAD
     return pymysql.connect(host='localhost', user='root', password='akhilpkl@123', database='library_db')
     return pymysql.connect(host='localhost', user='root', password='password', database='library_db')
+=======
+    return pymysql.connect(host='localhost', user='root', password='your password', database='library_db')
+>>>>>>> 82ca621160d3b6232f7fe7f585d03d582579de31
 
 @app.route('/')
 def home():
