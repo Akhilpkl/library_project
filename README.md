@@ -87,6 +87,8 @@ Open your browser and visit:
 ```
 library_project/
 │
+├── static/
+│   └── search.js
 ├── templates/
 │   ├── home.html
 │   ├── add_book.html
