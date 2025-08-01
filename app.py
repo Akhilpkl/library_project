@@ -63,7 +63,14 @@ def search():
     connection.close()
 
     return render_template('search_results.html', books=results, query=query)
-
+@app.route('/all_books')
+def view_allbooks():
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM books")
+    books = cur.fetchall()
+    conn.close()
+    return render_template("all_books.html", books=books)
 
 if __name__ == '__main__':
     app.run( debug=True)
