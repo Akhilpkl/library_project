@@ -72,12 +72,9 @@ def view_allbooks():
     conn.close()
     return render_template("all_books.html", books=books)
 
-<<<<<<< HEAD
+
 @app.route('/about')
 def abouts():
     return render_template("about.html")
-
-=======
->>>>>>> 1460bead0e7b6f19a69737e63efbda398a54e8fc
 if __name__ == '__main__':
     app.run( debug=True)
