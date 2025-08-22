@@ -94,7 +94,8 @@ library_project/
 │   ├── add_book.html
 │   ├── members.html
 │   └── add_member.html
-│── app.py
+|
+ ─ app.py
 ```
 
 ---
