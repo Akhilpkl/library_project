@@ -8,34 +8,53 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 min-h-screen px-4 py-8">
-    <div class="max-w-3xl mx-auto bg-white shadow-md rounded-xl p-6">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">👥 Registered Members</h2>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <div class="w-full px-4 py-10 flex flex-col items-center flex-grow">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">👥 Registered Members</h2>
 
-        <div class="mb-6">
+        <!-- Add New Member Button -->
+        <div class="mb-6 text-center">
             <a href="/add_member"
-                class="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-                ➕ Add New Member
+               class="inline-block px-6 py-3 bg-blue-600 text-white rounded-md shadow hover:bg-blue-800 transition">
+               ➕ Add New Member
             </a>
         </div>
 
+        <!-- Members List -->
         {% if members %}
-        <ul class="space-y-2">
+        <ul class="space-y-4 w-full max-w-6xl">
             {% for member in members %}
-            <li class="bg-gray-50 p-3 rounded border text-gray-700">
-                <span class="font-medium">{{ member[1] }}</span> (<span class="text-sm text-gray-500">{{ member[2]
-                    }}</span>)
+            <li class="bg-gray-50 p-6 rounded-2xl border flex justify-between items-center hover:bg-gray-100 transition w-full">
+                <div class="text-lg">
+                    <span class="font-semibold text-gray-800">{{ member[1] }}</span>
+                    <span class="text-sm text-gray-500 ml-2">({{ member[2] }})</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="/edit_member/{{ member[0] }}"
+                       class="text-yellow-600 hover:text-yellow-800 font-medium text-sm">Edit</a>
+                    <a href="/delete_member/{{ member[0] }}"
+                       class="text-red-600 hover:text-red-800 font-medium text-sm">Delete</a>
+                </div>
             </li>
             {% endfor %}
         </ul>
         {% else %}
-        <p class="text-gray-500">No members registered yet.</p>
+        <p class="text-gray-500 text-center text-lg mt-10">No members registered yet.</p>
         {% endif %}
 
-        <div class="mt-6">
-            <a href="/" class="text-blue-600 hover:underline">&larr; Back to Home</a>
+        <!-- Back Button -->
+        <div class="text-center mt-8">
+            <a href="/" 
+               class="inline-block bg-blue-600 hover:bg-blue-800 text-white px-6 py-3 rounded-md shadow transition">
+               ⬅ Back to Home
+            </a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white text-center py-3 mt-10">
+        <p>&copy; 2025 MyLibrary. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
